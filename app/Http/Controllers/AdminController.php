@@ -50,11 +50,11 @@ class AdminController extends Controller
         return redirect(route('admin.dashboard'))->with('message', 'Hai correttamente aggiornato il tag');
      }
 
-     public function delteTag(Tag $tag){
+     public function deleteTag(Tag $tag){
         foreach($tag->articles as $article){
             $article->tags()->detach($tag);
         }
-        $tag->delet();
+        $tag->delete();
         return redirect(route('admin.dashboard'))->with('message', 'Hai corretamente eliminato il tag');
      }
 
@@ -70,14 +70,14 @@ class AdminController extends Controller
 
      public function deleteCategory(Category $category){
         $category->delete();
-        return redirect(route('admin.dashboard'))->whith('message', 'Hai corretamente eliminato la categoria');
+        return redirect(route('admin.dashboard'))->with('message', 'Hai corretamente eliminato la categoria');
      }
 
      public function storeCategory(Request $request){
         Category::create([
             'name' => strtolower($request->name),
         ]);
-        return redirect(route('admin.dashboard'))->whith('message', 'Hai corretamente  inserito una nuova categoria');
+        return redirect(route('admin.dashboard'))->with('message', 'Hai corretamente  inserito una nuova categoria');
      }
 
 
