@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="container-fluid p-5 bg-info text-center text-white">
+    <div class="container-fluid p-5 bg-info text-center text-white" style="background-color:var(--bs-green-300)  !important ">
         <div class="row justify-content-center">
             <h1 class="display-1"> Accedi Alla Tua Area</h1>
         </div>
@@ -21,7 +21,7 @@
                     
                 @endif
 
-                <form class="card p-5 shadow" action="{{route('login')}}" method="POST">
+                <form class="card p-5 shadow" action="{{route('login')}}" method="POST" style="background-color:var(--bs-green-300)  !important ">
                   @csrf
 
                   <div class="mb-3">

@@ -7,10 +7,10 @@
             </h1>
         </div>
     </div>
-    <div class="container my-10 ">
+    <div class="container my-5 ">
         <div class="row justify-content-around ">
             @foreach ($articles as $article )
-            <div class="col-12 col-md-3 my-4">
+            <div class="col-12 col-md-4 my-1">
                 <div class="card border-secondary mb-4 text-center  " style="width: 22rem;">
                     <img src="{{Storage::url($article->image)}}" class="card-imag-top" alt="">
                     <div class="card-body">

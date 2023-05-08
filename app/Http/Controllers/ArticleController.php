@@ -65,8 +65,8 @@ class ArticleController extends Controller
         ]);
 
         $tags = explode(', ', $request->tags);
-
-        foreach($tags as $tag){
+        
+        foreach ($tags as $tag){
             $newtag = Tag::updateOrCreate([
                 'name' => $tag,
 
@@ -134,5 +134,11 @@ class ArticleController extends Controller
     }
 
     
-    
+    public function articleSearch(Request $request){
+        $query = $request->input('query');
+        $articles = Article::search($query)->where('is_accepted', true)->orderBy('created_at', 'desc')->get();
+
+        return view('article.search-index', compact('articles', 'query'));
+        
+    }
 }

@@ -1,5 +1,6 @@
 <x-layout>
-    <div class="container-fluid p-5 bg-info text-center text-white">
+    <div class="container-fluid p-5 bg-info text-center text-white" style="background-color:var(--bs-green-300)  !important "
+    >
         <div class="row justify-content-center">
             <h1 class="display-1">
                 tutti gli articoli per: {{$query}}
