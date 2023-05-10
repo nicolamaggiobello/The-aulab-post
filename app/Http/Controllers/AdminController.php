@@ -32,7 +32,7 @@ class AdminController extends Controller
     }
     
     public  function dashboard(){
-        $adminRequest = User::where('is_admin'. false)->get();
+        $adminRequest = User::where('is_admin', false)->get();
         $revisorRequest = User::where('is_revisor', false)->get();
         $writherRequest = User::where('is_writer', false)->get();
        

@@ -21,7 +21,7 @@
                     
                 @endif
 
-                <form class="card p-5 shadow" action="" method="" enctype="Multipart/form-data">
+                <form class="card p-5 shadow" action="{{route('article.edit','article')}}" method="POST" enctype="Multipart/form-data">
                     @csrf
                   
 
