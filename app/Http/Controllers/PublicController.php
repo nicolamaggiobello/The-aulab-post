@@ -60,7 +60,7 @@ public function __construct()
                 break;    
     }
     
-    $user ->update;
+    $user->update();
     return redirect(route('homepage'))->with('message', 'Grazie per averci contattato');
 
  }

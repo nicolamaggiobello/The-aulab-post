@@ -32,12 +32,12 @@ class AdminController extends Controller
     }
     
     public  function dashboard(){
-        $adminRequest = User::where('is_admin', false)->get();
-        $revisorRequest = User::where('is_revisor', false)->get();
-        $writherRequest = User::where('is_writer', false)->get();
+        $adminRequests = User::where('is_admin', NULL)->get();
+        $revisorRequests = User::where('is_revisor', NULL)->get();
+        $writherRequests = User::where('is_writer', NULL)->get();
+      
        
-       
-        return view('admin.dashboard', compact('adminRequest', 'revisorRequest', 'writherRequest'));
+        return view('admin.dashboard', compact('adminRequests', 'revisorRequests', 'writherRequests'));
      }
 
      public function editTag(Request $request, Tag $tag){

@@ -98,8 +98,8 @@ class ArticleController extends Controller
     public function update(Request $request, Article $article)
     {
         $request->validate([
-            'title' => 'required|min:5|unique:articles,title'. $article->id,
-            'subtitle' => 'required|min:5|unique:articles,subtitle'. $article->id,
+            'title' => 'required|min:5|unique:articles,title,'. $article->id,
+            'subtitle' => 'required|min:5|unique:articles,subtitle,'. $article->id,
             'body' => 'required|min:10',
             'image' => 'image',
             'category' => 'required',
@@ -120,7 +120,7 @@ class ArticleController extends Controller
                 'image' => $request->file('image')->store('public/images'),
             ]);
         }
-
+      
         $tags = explode(', ', $request->tags);
         $newTags = [];
 
@@ -129,10 +129,10 @@ class ArticleController extends Controller
                 'name' => $tag,
 
             ]);
-           $newTag[] = $newTag->id;
+           $newTags[] = $newTag->id;
         }
         $article->tags()->sync($newTags);
-
+        
         return redirect(route('writer.dashboard'))->with('massage', 'Hai correttamente aggiornato l\'articolo scelto');
         
     }

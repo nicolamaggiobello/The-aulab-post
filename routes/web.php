@@ -22,7 +22,7 @@ Route::get('/article/{article:slug}/show', [ArticleController::class, 'show'])->
 Route::get('/article/category/{category}', [ArticleController::class, 'byCategory'])->name('article.byCategory');
 Route::get('/article/user/{user}', [ArticleController::class, 'byUser'])->name('article.byUser');
 Route::get('/careers', [PublicController::class, 'careers'])->name('careers');
-Route::get('/careers/submit', [PublicController::class, 'careersSubmit'])->name('careers.submit');
+Route::post('/careers/submit', [PublicController::class, 'careersSubmit'])->name('careers.submit');
 
 Route::middleware('admin')->group(function(){
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
@@ -54,14 +54,14 @@ Route::middleware('revisor')->group(function(){
     Route::post('/article/store', [ArticleController::class,'store'])->name('article.store');
     Route::get('/writer/dashboard', [WriterController::class, 'dashboard'])->name('writer.dashboard');
     Route::get('/article/{article}/edit', [ArticleController::class, 'edit'])->name('article.edit');
-    Route::PUT('/article/{article}/update', [ArticleController::class, 'update'])->name('article.update');
+    Route::put('/article/{article}/update', [ArticleController::class, 'update'])->name('article.update');
     Route::delete('/article/{article}/destroy', [ArticleController::class, 'destroy'])->name('article.destroy');
 
 });
 
 Route::get('/article/search', [ArticleController::class, 'articleSearch'])->name('article.search');
 
-// Route::get('/article/{article}/show', [ArticleController::class, 'show'])->name('article.show');
+Route::get('/article/{article}/show', [ArticleController::class, 'show'])->name('article.show');
 
 
 
